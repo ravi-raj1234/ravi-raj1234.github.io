@@ -3,75 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravi Raj | SRE Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Ravi Raj | Premium SRE Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-main: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0284c7;
-            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #ffffff;
+            --text-secondary: #cbd5e1;
+            --accent: #00f2fe;
+            --accent-hover: #4facfe;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
 
-        /* Animated Gradient Background */
         body {
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #020617, #0f172a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: #030712;
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* High-Res Fluid Background */
+        .bg-shapes {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: #030712;
+        }
+        .shape {
+            position: absolute;
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: float 12s infinite ease-in-out alternate;
+            border-radius: 50%;
+        }
+        .blob1 { width: 500px; height: 500px; background: #00f2fe; top: -10%; left: -10%; }
+        .blob2 { width: 600px; height: 600px; background: #4facfe; bottom: -20%; right: -10%; animation-delay: -6s; }
+        .blob3 { width: 400px; height: 400px; background: #3b82f6; top: 40%; left: 30%; animation-delay: -3s; opacity: 0.3; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, 60px) scale(1.1); }
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header Section */
+        /* Header */
         header {
             text-align: center;
-            padding: 50px 0;
-            animation: slideDown 1s ease-out forwards;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 80px 0 50px;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 800;
             margin-bottom: 10px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            background: linear-gradient(to right, #00f2fe, #4facfe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
         }
 
-        h2 {
-            font-size: 1.2rem;
+        .typed-container {
+            font-size: 1.4rem;
             color: var(--text-secondary);
             font-weight: 400;
             letter-spacing: 2px;
             margin-bottom: 30px;
+            height: 30px; /* Prevents layout jump */
         }
 
         /* Action Buttons */
@@ -86,42 +98,42 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-main);
-            padding: 12px 24px;
+            padding: 12px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .btn:hover {
-            background: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
             border-color: var(--accent);
-            color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.2);
         }
 
-        .btn i {
-            font-size: 1.1rem;
-        }
-
-        /* Content Sections */
+        /* Glassmorphism Sections */
         .section {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            /* Vanilla-tilt perspective */
+            transform-style: preserve-3d;
         }
 
         .section.visible {
@@ -131,25 +143,20 @@
 
         .section h3 {
             color: var(--accent);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            transform: translateZ(30px); /* 3D pop effect */
         }
 
-        ul {
-            list-style-type: none;
+        .section-content {
+            transform: translateZ(20px); /* 3D pop effect */
         }
 
-        li {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-
+        ul { list-style-type: none; }
+        li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--text-secondary); }
         li::before {
             content: "▹";
             position: absolute;
@@ -158,52 +165,42 @@
             font-size: 1.2rem;
             line-height: 1;
         }
+        li strong { color: var(--text-main); font-weight: 600; }
+        p { color: var(--text-secondary); margin-bottom: 15px; }
 
-        li strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        p, li {
-            color: var(--text-secondary);
-        }
-
-        /* Experience specific styling */
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             padding-bottom: 15px;
         }
 
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
+        .job-title { font-size: 1.3rem; font-weight: 600; color: var(--text-main); }
+        .job-date { color: var(--accent); font-size: 0.95rem; font-weight: 600; }
 
-        .job-date {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2.8rem; }
             .action-buttons { gap: 10px; }
-            .btn { padding: 10px 20px; font-size: 0.85rem; }
+            .btn { padding: 10px 20px; font-size: 0.9rem; }
+            .section { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-shapes">
+        <div class="shape blob1"></div>
+        <div class="shape blob2"></div>
+        <div class="shape blob3"></div>
+    </div>
+
     <div class="container">
         <header>
-            <h1>RAVI RAJ</h1>
-            <h2>INFRASTRUCTURE & SITE RELIABILITY ENGINEER (SRE) | AWS EXPERT</h2>
+            <h1>RAVI RAJ <span style="display:none;">[cite: 1]</span></h1>
+            <div class="typed-container"><span id="typed-output"></span></div>
             
             <div class="action-buttons">
                 <a href="Ravi_RajCV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> Resume</a>
@@ -211,68 +208,99 @@
                 <a href="https://wa.me/919504493788" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="https://www.linkedin.com/in/ravi-raj-208b13312/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
-            <p class="contact-info">Gurugram, India (Open to Remote) | (+91) 9504493788 | ravifeat.fb@gmail.com</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Gurugram, India (Open to Remote) | (+91) 9504493788 | ravifeat.fb@gmail.com <span style="display:none;">[cite: 3]</span></p>
         </header>
 
-        <div class="section">
-            <h3><i class="fas fa-user-tie"></i> Professional Summary</h3>
-            <p>Infrastructure and Site Reliability Engineer with 5 years of experience specializing in building resilient, scalable cloud architectures. Expert in AWS ecosystem management, Infrastructure as Code (Terraform), and container orchestration (EKS/ECS). Focused on improving system reliability through proactive monitoring, automated incident response, and performance tuning, while maintaining a 99.99% SLA for global enterprise workloads.</p>
-        </div>
-
-        <div class="section">
-            <h3><i class="fas fa-code"></i> Technical Skills</h3>
-            <ul>
-                <li><strong>Reliability & Cloud Ops:</strong> High Availability Architecture, Disaster Recovery, SLO/SLI Management, AWS (ECS, EKS, Lambda, S3, RDS), GCP, Azure.</li>
-                <li><strong>Infrastructure as Code:</strong> Terraform (Modules & State Management), Ansible, CloudFormation, Helm.</li>
-                <li><strong>Automation & Scripting:</strong> Python (Systems Automation), Bash/Shell, Step Functions, Jenkins Groovy Pipelines.</li>
-                <li><strong>Security & Governance:</strong> IAM (Least Privilege), Secrets Manager, WAF, SecurityHub, SOC2 Compliance, RBAC.</li>
-                <li><strong>Observability & Performance:</strong> CloudWatch, Prometheus, Grafana, Datadog, ELK Stack, Distributed Tracing.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3><i class="fas fa-briefcase"></i> Professional Experience</h3>
-            <div class="job-header">
-                <div class="job-title">Infrastructure & Site Reliability Engineer <br><span style="font-size: 0.9rem; color: #94a3b8; font-weight: 400;">Inclination IT Innovation Pvt. Ltd. | Gurugram, India</span></div>
-                <div class="job-date">June 2021 - Present</div>
+        <div class="section tilt-card">
+            <h3><i class="fas fa-user-astronaut"></i> Professional Summary</h3>
+            <div class="section-content">
+                <p>Infrastructure and Site Reliability Engineer with 4+ years of experience specializing in building resilient, scalable cloud architectures. <span style="display:none;">[cite: 5]</span> Expert in AWS ecosystem management, Infrastructure as Code (Terraform), and container orchestration (EKS/ECS). <span style="display:none;">[cite: 6]</span> Focused on improving system reliability through proactive monitoring, automated incident response, and performance tuning, while maintaining a 99.99% SLA for global enterprise workloads. <span style="display:none;">[cite: 7]</span></p>
             </div>
-            <ul>
-                <li><strong>System Reliability & Scalability:</strong> Managed mission-critical EKS and ECS (Fargate) environments hosting 200+ microservices, ensuring 99.99% uptime through multi-region failover and auto-scaling.</li>
-                <li><strong>Infrastructure Automation:</strong> Developed 20+ Terraform modules to standardize environment provisioning, reducing infrastructure setup time from 2 weeks to 2 hours.</li>
-                <li><strong>Incident Response & Observability:</strong> Reduced Mean Time to Repair (MTTR) by implementing real-time monitoring and alerting via Prometheus, Grafana, and CloudWatch.</li>
-                <li><strong>Security Posture Management:</strong> Automated security audits using AWS Config and SecurityHub; enforced strict IAM policies and Secrets Manager integration to meet SOC2 standards.</li>
-                <li><strong>Operational Tooling:</strong> Engineered Python-based internal tools to automate repetitive operational tasks and scale infrastructure on-demand.</li>
-                <li><strong>Performance Optimization:</strong> Orchestrated container resource tuning and AWS Savings Plans, resulting in a 40% reduction in annual cloud expenditure ($50K+).</li>
-            </ul>
         </div>
 
-        <div class="section">
-            <h3><i class="fas fa-project-diagram"></i> Key Projects</h3>
-            <ul>
-                <li><strong>Self-Healing Cloud Infrastructure:</strong> Architected a self-healing system using Step Functions and Lambda that automatically detects and remediates infrastructure drifts and service failures.</li>
-                <li><strong>Global Traffic Management Optimization:</strong> Optimized global content delivery and latency for 200+ applications by implementing advanced CloudFront caching policies and WAF security layers.</li>
-            </ul>
+        <div class="section tilt-card">
+            <h3><i class="fas fa-layer-group"></i> Technical Skills <span style="display:none;">[cite: 8]</span></h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Reliability & Cloud Ops:</strong> High Availability Architecture, Disaster Recovery, SLO/SLI Management, AWS (ECS, EKS, Lambda, S3, RDS), GCP, Azure <span style="display:none;">[cite: 9, 10]</span></li>
+                    <li><strong>Infrastructure as Code:</strong> Terraform (Modules & State Management), Ansible, CloudFormation, Helm <span style="display:none;">[cite: 11, 12]</span></li>
+                    <li><strong>Automation & Scripting:</strong> Python (Systems Automation), Bash/Shell, Step Functions, Jenkins Groovy Pipelines <span style="display:none;">[cite: 13, 14]</span></li>
+                    <li><strong>Security & Governance:</strong> IAM (Least Privilege), Secrets Manager, WAF, SecurityHub, SOC2 Compliance, RBAC <span style="display:none;">[cite: 15, 16]</span></li>
+                    <li><strong>Observability & Performance:</strong> CloudWatch, Prometheus, Grafana, Datadog, ELK Stack, Distributed Tracing <span style="display:none;">[cite: 17, 18, 19]</span></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="section">
-            <h3><i class="fas fa-graduation-cap"></i> Education & Certifications</h3>
-            <ul>
-                <li><strong>Bachelor of Commerce (B.Com)</strong> | Ram Krishna Dwarika College, Patna</li>
-                <li><strong>DevOps Full Stack Certification</strong> | Future Flow.us</li>
-                <li><strong>Terraform Cloud Automation Certification</strong></li>
-                <li><strong>AWS Certified Solutions Architect / SysOps Administrator</strong> (Planned)</li>
-            </ul>
+        <div class="section tilt-card">
+            <h3><i class="fas fa-terminal"></i> Professional Experience <span style="display:none;">[cite: 20]</span></h3>
+            <div class="section-content">
+                <div class="job-header">
+                    <div class="job-title">Infrastructure & Site Reliability Engineer <span style="display:none;">[cite: 21]</span><br><span style="font-size: 0.95rem; color: #94a3b8; font-weight: 400;">Inclination IT Innovation Pvt. Ltd. | Gurugram, India <span style="display:none;">[cite: 23, 24]</span></span></div>
+                    <div class="job-date">June 2021- Present <span style="display:none;">[cite: 22]</span></div>
+                </div>
+                <ul>
+                    <li><strong>System Reliability & Scalability:</strong> Managed mission-critical EKS and ECS (Fargate) environments hosting 200+ microservices, ensuring 99.99% uptime through multi-region failover and auto-scaling. <span style="display:none;">[cite: 25]</span></li>
+                    <li><strong>Infrastructure Automation:</strong> Developed 20+ Terraform modules to standardize environment provisioning, reducing infrastructure setup time from 2 weeks to 2 hours. <span style="display:none;">[cite: 26]</span></li>
+                    <li><strong>Incident Response & Observability:</strong> Reduced Mean Time to Repair (MTTR) by implementing real-time monitoring and alerting via Prometheus, Grafana, and CloudWatch. <span style="display:none;">[cite: 27]</span></li>
+                    <li><strong>Security Posture Management:</strong> Automated security audits using AWS Config and SecurityHub; enforced strict IAM policies and Secrets Manager integration to meet SOC2 standards. <span style="display:none;">[cite: 28, 29]</span></li>
+                    <li><strong>Operational Tooling:</strong> Engineered Python-based internal tools to automate repetitive operational tasks and scale infrastructure on-demand. <span style="display:none;">[cite: 30]</span></li>
+                    <li><strong>Performance Optimization:</strong> Orchestrated container resource tuning and AWS Savings Plans, resulting in a 40% reduction in annual cloud expenditure ($50K+). <span style="display:none;">[cite: 31]</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section tilt-card">
+            <h3><i class="fas fa-network-wired"></i> Key Projects <span style="display:none;">[cite: 32]</span></h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>Self-Healing Cloud Infrastructure:</strong> Architected a self-healing system using Step Functions and Lambda that automatically detects and remediates infrastructure drifts and service failures. <span style="display:none;">[cite: 33, 34]</span></li>
+                    <li><strong>Global Traffic Management Optimization:</strong> Optimized global content delivery and latency for 200+ applications by implementing advanced CloudFront caching policies and WAF security layers. <span style="display:none;">[cite: 35, 36]</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section tilt-card">
+            <h3><i class="fas fa-award"></i> Education & Certifications <span style="display:none;">[cite: 37]</span></h3>
+            <div class="section-content">
+                <ul>
+                    <li><strong>AWS Certified Solutions Architect / SysOps Administrator</strong> (Planned) <span style="display:none;">[cite: 38]</span></li>
+                    <li><strong>Terraform Cloud Automation Certification</strong> <span style="display:none;">[cite: 39]</span></li>
+                    <li><strong>DevOps Full Stack Certification</strong> | Future Flow.us <span style="display:none;">[cite: 40]</span></li>
+                    <li><strong>Bachelor of Commerce (B.Com)</strong> | Ram Krishna Dwarika College, Patna <span style="display:none;">[cite: 41]</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
     <script>
+        // Initialize Typing Animation
+        new Typed('#typed-output', {
+            strings: ['INFRASTRUCTURE & SITE RELIABILITY ENGINEER', 'AWS & KUBERNETES EXPERT', 'CLOUD AUTOMATION SPECIALIST'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+
+        // Initialize 3D Card Tilt
+        VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+            max: 3,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1,
+        });
+
+        // Scroll Reveal Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
 
         document.querySelectorAll('.section').forEach((section) => {
             observer.observe(section);
