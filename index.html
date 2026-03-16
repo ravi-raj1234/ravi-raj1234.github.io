@@ -3,310 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravi Raj | SRE & Platform Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Ravi Raj | SRE Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030a16;
-            --text-main: #ffffff;
-            --text-muted: #a0aec0;
-            --accent-color: #00e5ff;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --card-bg: rgba(30, 41, 59, 0.7);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
+        /* Animated Gradient Background */
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #020617, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Particle Background */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            top: 0;
-            left: 0;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(3, 10, 22, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--card-border);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .social-icons a {
-            color: var(--text-main);
-            margin: 0 10px;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--accent-color);
-        }
-
-        .resume-btn {
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 8px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            margin-left: 15px;
-            transition: all 0.3s;
-        }
-
-        .resume-btn:hover {
-            background: var(--accent-color);
-            color: var(--bg-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 120px 5% 50px;
-            position: relative;
-        }
-
-        .hero-text {
+        header {
             text-align: center;
-            max-width: 800px;
-            margin-bottom: 50px;
+            padding: 10vh 0;
+            animation: slideDown 1s ease-out forwards;
         }
 
-        .hero-text h1 {
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 10px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero-text h2 {
-            font-size: 1.5rem;
-            color: var(--accent-color);
+        h2 {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
             font-weight: 400;
+            letter-spacing: 2px;
             margin-bottom: 20px;
         }
 
-        .hero-text p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
+        .contact-info {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        /* Layout Grid for Image and Stats */
-        .hero-content {
+        .section {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-position: inside;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+
+        .job-header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 60px;
-            width: 100%;
-            max-width: 1000px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
-        /* Profile Image */
-        .profile-wrapper {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            padding: 10px;
-            background: linear-gradient(135deg, var(--accent-color), transparent);
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #1a2332; /* Fallback color */
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 30px 20px;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .stat-card h3 {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-        }
-
-        .stat-card p {
-            color: var(--text-muted);
+        .job-date {
+            color: var(--accent);
             font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
 
-    <div id="particles-js"></div>
+    <div class="container">
+        <header>
+            <h1>RAVI RAJ [cite: 1]</h1>
+            <h2>INFRASTRUCTURE & SITE RELIABILITY ENGINEER (SRE) | AWS EXPERT [cite: 2]</h2>
+            <p class="contact-info">Gurugram, India (Open to Remote) | (+91) 9504493788 | ravifeat.fb@gmail.com | linkedin.com/in/ravi-raj [cite: 3]</p>
+        </header>
 
-    <nav>
-        <div class="logo">Ravi DevOps</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Skills</a>
-            <a href="#">Experience</a>
-            <a href="#">Projects</a>
-        </div>
-        <div class="social-icons">
-            <a href="mailto:ravifeat.fb@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://linkedin.com/in/ravi-raj" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/RaviRaj" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" class="resume-btn">Resume</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Ravi Raj</h1>
-            <h2>Infrastructure & Site Reliability Engineer</h2>
-            <p>Building resilient, scalable cloud architectures, Kubernetes ecosystems, and enterprise automation systems.</p>
+        <div class="section">
+            <h3>Professional Summary [cite: 4]</h3>
+            <p>Infrastructure and Site Reliability Engineer with 5 years of experience specializing in building resilient, scalable cloud architectures[cite: 5]. Expert in AWS ecosystem management, Infrastructure as Code (Terraform), and container orchestration (EKS/ECS)[cite: 6]. Focused on improving system reliability through proactive monitoring, automated incident response, and performance tuning, while maintaining a 99.99% SLA for global enterprise workloads[cite: 7].</p>
         </div>
 
-        <div class="hero-content">
-            <div class="profile-wrapper">
-                <img src="https://via.placeholder.com/280x280.png?text=Add+Your+Photo" alt="Ravi Raj" class="profile-img">
+        <div class="section">
+            <h3>Technical Skills [cite: 8]</h3>
+            <ul>
+                <li><strong>Reliability & Cloud Ops:</strong> High Availability Architecture, Disaster Recovery, SLO/SLI Management, AWS (ECS, EKS, Lambda, S3, RDS), GCP, Azure[cite: 9, 10].</li>
+                <li><strong>Infrastructure as Code:</strong> Terraform (Modules & State Management), Ansible, CloudFormation, Helm[cite: 11, 12].</li>
+                <li><strong>Automation & Scripting:</strong> Python (Systems Automation), Bash/Shell, Step Functions, Jenkins Groovy Pipelines[cite: 13, 14].</li>
+                <li><strong>Security & Governance:</strong> IAM (Least Privilege), Secrets Manager, WAF, SecurityHub, SOC2 Compliance, RBAC[cite: 15, 16].</li>
+                <li><strong>Observability & Performance:</strong> CloudWatch, Prometheus, Grafana, Datadog, ELK Stack, Distributed Tracing[cite: 17, 18, 19].</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Professional Experience [cite: 20]</h3>
+            <div class="job-header">
+                <div class="job-title">Infrastructure & Site Reliability Engineer [cite: 21] - Inclination IT Innovation Pvt. Ltd. [cite: 23]</div>
+                <div class="job-date">June 2021- Present [cite: 22] | Gurugram, India [cite: 24]</div>
             </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>4+</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-card">
-                    <h3>200+</h3>
-                    <p>Microservices Managed</p>
-                </div>
-                <div class="stat-card">
-                    <h3>99.99%</h3>
-                    <p>Uptime SLA Maintained</p>
-                </div>
-                <div class="stat-card">
-                    <h3>20+</h3>
-                    <p>Terraform Modules Built</p>
-                </div>
-            </div>
+            <ul>
+                <li><strong>System Reliability & Scalability:</strong> Managed mission-critical EKS and ECS (Fargate) environments hosting 200+ microservices, ensuring 99.99% uptime through multi-region failover and auto-scaling[cite: 25].</li>
+                <li><strong>Infrastructure Automation:</strong> Developed 20+ Terraform modules to standardize environment provisioning, reducing infrastructure setup time from 2 weeks to 2 hours[cite: 26].</li>
+                <li><strong>Incident Response & Observability:</strong> Reduced Mean Time to Repair (MTTR) by implementing real-time monitoring and alerting via Prometheus, Grafana, and CloudWatch[cite: 27].</li>
+                <li><strong>Security Posture Management:</strong> Automated security audits using AWS Config and SecurityHub; enforced strict IAM policies and Secrets Manager integration to meet SOC2 standards[cite: 28, 29].</li>
+                <li><strong>Operational Tooling:</strong> Engineered Python-based internal tools to automate repetitive operational tasks and scale infrastructure on-demand[cite: 30].</li>
+                <li><strong>Performance Optimization:</strong> Orchestrated container resource tuning and AWS Savings Plans, resulting in a 40% reduction in annual cloud expenditure ($50K+)[cite: 31].</li>
+            </ul>
         </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <div class="section">
+            <h3>Key Projects [cite: 32]</h3>
+            <ul>
+                <li><strong>Self-Healing Cloud Infrastructure:</strong> Architected a self-healing system using Step Functions and Lambda that automatically detects and remediates infrastructure drifts and service failures[cite: 33, 34].</li>
+                <li><strong>Global Traffic Management Optimization:</strong> Optimized global content delivery and latency for 200+ applications by implementing advanced CloudFront caching policies and WAF security layers[cite: 35, 36].</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Education & Certifications [cite: 37]</h3>
+            <ul>
+                <li>Bachelor of Commerce (B.Com) | Ram Krishna Dwarika College, Patna [cite: 41]</li>
+                <li>DevOps Full Stack Certification | Future Flow.us [cite: 40]</li>
+                <li>Terraform Cloud Automation Certification [cite: 39]</li>
+                <li>AWS Certified Solutions Architect / SysOps Administrator (Planned) [cite: 38]</li>
+            </ul>
+        </div>
+    </div>
+
     <script>
-        // Initialize the network particle background
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#00e5ff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#00e5ff",
-                    "opacity": 0.2,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
-                    "push": { "particles_nb": 4 }
-                }
-            },
-            "retina_detect": true
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
         });
     </script>
 </body>
