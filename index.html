@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ravi Raj | SRE Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #0f172a;
             --text-main: #f8fafc;
             --text-secondary: #94a3b8;
             --accent: #38bdf8;
+            --accent-hover: #0284c7;
             --card-bg: rgba(30, 41, 59, 0.7);
         }
 
@@ -43,9 +45,10 @@
             padding: 40px 20px;
         }
 
+        /* Header Section */
         header {
             text-align: center;
-            padding: 10vh 0;
+            padding: 50px 0;
             animation: slideDown 1s ease-out forwards;
         }
 
@@ -68,14 +71,47 @@
             color: var(--text-secondary);
             font-weight: 400;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        .contact-info {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
         }
 
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Content Sections */
         .section {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -99,27 +135,47 @@
             font-size: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         ul {
-            list-style-position: inside;
-            color: var(--text-secondary);
+            list-style-type: none;
         }
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+            line-height: 1;
         }
 
         li strong {
             color: var(--text-main);
+            font-weight: 600;
         }
 
+        p, li {
+            color: var(--text-secondary);
+        }
+
+        /* Experience specific styling */
         .job-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: baseline;
             margin-bottom: 15px;
             flex-wrap: wrap;
+            padding-bottom: 15px;
         }
 
         .job-title {
@@ -131,6 +187,14 @@
         .job-date {
             color: var(--accent);
             font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .action-buttons { gap: 10px; }
+            .btn { padding: 10px 20px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -138,58 +202,64 @@
 
     <div class="container">
         <header>
-            <h1>RAVI RAJ [cite: 1]</h1>
-            <h2>INFRASTRUCTURE & SITE RELIABILITY ENGINEER (SRE) | AWS EXPERT [cite: 2]</h2>
-            <p class="contact-info">Gurugram, India (Open to Remote) | (+91) 9504493788 | ravifeat.fb@gmail.com | linkedin.com/in/ravi-raj [cite: 3]</p>
+            <h1>RAVI RAJ</h1>
+            <h2>INFRASTRUCTURE & SITE RELIABILITY ENGINEER</h2>
+            
+            <div class="action-buttons">
+                <a href="Ravi_RajCV.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> Resume</a>
+                <a href="mailto:ravifeat.fb@gmail.com" class="btn"><i class="fas fa-envelope"></i> Gmail</a>
+                <a href="https://wa.me/919504493788" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://linkedin.com/in/ravi-raj" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </header>
 
         <div class="section">
-            <h3>Professional Summary [cite: 4]</h3>
-            <p>Infrastructure and Site Reliability Engineer with 5 years of experience specializing in building resilient, scalable cloud architectures[cite: 5]. Expert in AWS ecosystem management, Infrastructure as Code (Terraform), and container orchestration (EKS/ECS)[cite: 6]. Focused on improving system reliability through proactive monitoring, automated incident response, and performance tuning, while maintaining a 99.99% SLA for global enterprise workloads[cite: 7].</p>
+            <h3><i class="fas fa-user-tie"></i> Professional Summary</h3>
+            <p>Infrastructure and Site Reliability Engineer with 5 years of experience specializing in building resilient, scalable cloud architectures. Expert in AWS ecosystem management, Infrastructure as Code (Terraform), and container orchestration (EKS/ECS). Focused on improving system reliability through proactive monitoring, automated incident response, and performance tuning, while maintaining a 99.99% SLA for global enterprise workloads.</p>
         </div>
 
         <div class="section">
-            <h3>Technical Skills [cite: 8]</h3>
+            <h3><i class="fas fa-code"></i> Technical Skills</h3>
             <ul>
-                <li><strong>Reliability & Cloud Ops:</strong> High Availability Architecture, Disaster Recovery, SLO/SLI Management, AWS (ECS, EKS, Lambda, S3, RDS), GCP, Azure[cite: 9, 10].</li>
-                <li><strong>Infrastructure as Code:</strong> Terraform (Modules & State Management), Ansible, CloudFormation, Helm[cite: 11, 12].</li>
-                <li><strong>Automation & Scripting:</strong> Python (Systems Automation), Bash/Shell, Step Functions, Jenkins Groovy Pipelines[cite: 13, 14].</li>
-                <li><strong>Security & Governance:</strong> IAM (Least Privilege), Secrets Manager, WAF, SecurityHub, SOC2 Compliance, RBAC[cite: 15, 16].</li>
-                <li><strong>Observability & Performance:</strong> CloudWatch, Prometheus, Grafana, Datadog, ELK Stack, Distributed Tracing[cite: 17, 18, 19].</li>
+                <li><strong>Reliability & Cloud Ops:</strong> High Availability Architecture, Disaster Recovery, SLO/SLI Management, AWS (ECS, EKS, Lambda, S3, RDS), GCP, Azure.</li>
+                <li><strong>Infrastructure as Code:</strong> Terraform (Modules & State Management), Ansible, CloudFormation, Helm.</li>
+                <li><strong>Automation & Scripting:</strong> Python (Systems Automation), Bash/Shell, Step Functions, Jenkins Groovy Pipelines.</li>
+                <li><strong>Security & Governance:</strong> IAM (Least Privilege), Secrets Manager, WAF, SecurityHub, SOC2 Compliance, RBAC.</li>
+                <li><strong>Observability & Performance:</strong> CloudWatch, Prometheus, Grafana, Datadog, ELK Stack, Distributed Tracing.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h3>Professional Experience [cite: 20]</h3>
+            <h3><i class="fas fa-briefcase"></i> Professional Experience</h3>
             <div class="job-header">
-                <div class="job-title">Infrastructure & Site Reliability Engineer [cite: 21] - Inclination IT Innovation Pvt. Ltd. [cite: 23]</div>
-                <div class="job-date">June 2021- Present [cite: 22] | Gurugram, India [cite: 24]</div>
+                <div class="job-title">Infrastructure & Site Reliability Engineer <br><span style="font-size: 0.9rem; color: #94a3b8; font-weight: 400;">Inclination IT Innovation Pvt. Ltd. | Gurugram, India</span></div>
+                <div class="job-date">June 2021 - Present</div>
             </div>
             <ul>
-                <li><strong>System Reliability & Scalability:</strong> Managed mission-critical EKS and ECS (Fargate) environments hosting 200+ microservices, ensuring 99.99% uptime through multi-region failover and auto-scaling[cite: 25].</li>
-                <li><strong>Infrastructure Automation:</strong> Developed 20+ Terraform modules to standardize environment provisioning, reducing infrastructure setup time from 2 weeks to 2 hours[cite: 26].</li>
-                <li><strong>Incident Response & Observability:</strong> Reduced Mean Time to Repair (MTTR) by implementing real-time monitoring and alerting via Prometheus, Grafana, and CloudWatch[cite: 27].</li>
-                <li><strong>Security Posture Management:</strong> Automated security audits using AWS Config and SecurityHub; enforced strict IAM policies and Secrets Manager integration to meet SOC2 standards[cite: 28, 29].</li>
-                <li><strong>Operational Tooling:</strong> Engineered Python-based internal tools to automate repetitive operational tasks and scale infrastructure on-demand[cite: 30].</li>
-                <li><strong>Performance Optimization:</strong> Orchestrated container resource tuning and AWS Savings Plans, resulting in a 40% reduction in annual cloud expenditure ($50K+)[cite: 31].</li>
+                <li><strong>System Reliability & Scalability:</strong> Managed mission-critical EKS and ECS (Fargate) environments hosting 200+ microservices, ensuring 99.99% uptime through multi-region failover and auto-scaling.</li>
+                <li><strong>Infrastructure Automation:</strong> Developed 20+ Terraform modules to standardize environment provisioning, reducing infrastructure setup time from 2 weeks to 2 hours.</li>
+                <li><strong>Incident Response & Observability:</strong> Reduced Mean Time to Repair (MTTR) by implementing real-time monitoring and alerting via Prometheus, Grafana, and CloudWatch.</li>
+                <li><strong>Security Posture Management:</strong> Automated security audits using AWS Config and SecurityHub; enforced strict IAM policies and Secrets Manager integration to meet SOC2 standards.</li>
+                <li><strong>Operational Tooling:</strong> Engineered Python-based internal tools to automate repetitive operational tasks and scale infrastructure on-demand.</li>
+                <li><strong>Performance Optimization:</strong> Orchestrated container resource tuning and AWS Savings Plans, resulting in a 40% reduction in annual cloud expenditure ($50K+).</li>
             </ul>
         </div>
 
         <div class="section">
-            <h3>Key Projects [cite: 32]</h3>
+            <h3><i class="fas fa-project-diagram"></i> Key Projects</h3>
             <ul>
-                <li><strong>Self-Healing Cloud Infrastructure:</strong> Architected a self-healing system using Step Functions and Lambda that automatically detects and remediates infrastructure drifts and service failures[cite: 33, 34].</li>
-                <li><strong>Global Traffic Management Optimization:</strong> Optimized global content delivery and latency for 200+ applications by implementing advanced CloudFront caching policies and WAF security layers[cite: 35, 36].</li>
+                <li><strong>Self-Healing Cloud Infrastructure:</strong> Architected a self-healing system using Step Functions and Lambda that automatically detects and remediates infrastructure drifts and service failures.</li>
+                <li><strong>Global Traffic Management Optimization:</strong> Optimized global content delivery and latency for 200+ applications by implementing advanced CloudFront caching policies and WAF security layers.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h3>Education & Certifications [cite: 37]</h3>
+            <h3><i class="fas fa-graduation-cap"></i> Education & Certifications</h3>
             <ul>
-                <li>Bachelor of Commerce (B.Com) | Ram Krishna Dwarika College, Patna [cite: 41]</li>
-                <li>DevOps Full Stack Certification | Future Flow.us [cite: 40]</li>
-                <li>Terraform Cloud Automation Certification [cite: 39]</li>
-                <li>AWS Certified Solutions Architect / SysOps Administrator (Planned) [cite: 38]</li>
+                <li><strong>Bachelor of Commerce (B.Com)</strong> | Ram Krishna Dwarika College, Patna</li>
+                <li><strong>DevOps Full Stack Certification</strong> | Future Flow.us</li>
+                <li><strong>Terraform Cloud Automation Certification</strong></li>
+                <li><strong>AWS Certified Solutions Architect / SysOps Administrator</strong> (Planned)</li>
             </ul>
         </div>
     </div>
